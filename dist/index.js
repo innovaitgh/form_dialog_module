@@ -23,10 +23,13 @@ var _default = function _default(props) {
       title = props.title,
       DialogProps = props.DialogProps,
       children = props.children,
-      isEditing = props.isEditing;
+      isEditing = props.isEditing,
+      _props$respond = props.respond,
+      respond = _props$respond === void 0 ? true : _props$respond;
 
   _react["default"].useEffect(function () {
     if (!response) return;
+    if (!respond) return;
     var status = response.status;
     if (status === 201) addItem(JSON.parse(response.response));else if (status === 200) updateItem(JSON.parse(response.response));
   }, [response]);
